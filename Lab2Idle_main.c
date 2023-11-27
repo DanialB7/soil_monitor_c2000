@@ -1,12 +1,12 @@
-// Filename:            Lab2Idle_main.c
+// Filename:            SoilMonitor_main.c
 //
-// Description:         This file has a main, timer, and idle function for SYS/BIOS application.
+// Description:         This file has a main, timer, HWI, SWI, TSK and idle function for SYS/BIOS application.
 //
 // Target:              TMS320F28379D
 //
-// Author:              DR
+// Author:              Ken & Danial
 //
-// Date:                Oct. 12, 2021
+// Date:                Nov. 20, 2023
 
 //defines:
 #define xdc__strict //suppress typedef warnings
@@ -35,7 +35,6 @@ volatile Bool isrFlag2 = FALSE; //flag used by myIddleFxn2 //KH
 
 float moisture_voltage_reading; //for Hwi KH
 float water_content;
-
 
 
 
@@ -76,24 +75,9 @@ Void myIdleFxn(Void)
        GpioDataRegs.GPATOGGLE.bit.GPIO31 = 1;
    }
 }
-/* ======== myIdleFxn ======== */
-//Idle function that print time in second to SysMin
-Void myIdleFxn2(Void)
-{
-    UInt8 commands[1] = {0x75};
-    UInt8 data_rx[5] = {0, 0, 0, 0, 0};
 
-    Task_sleep(100U);
-    while(1)
-     {
-         i2c_master_transmit(DHT20_ADDRESS, commands, 1);
-         Task_sleep(10U);
-         //i2c_master_receive(DHT20_ADDRESS, data_rx, 1);
-         //Task_sleep(10U);
-
-     }
-}
-//For Hwi
+/* ========= myHwi ========== */
+//Hwi function that is called by the attached hardware devices e.g ADC
 Void myHwi(Void)
 {
     //read ADC value from temperature sensor:
