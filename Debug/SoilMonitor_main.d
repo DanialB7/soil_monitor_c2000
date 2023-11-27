@@ -167,6 +167,31 @@ SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtim
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/interfaces/ITaskSupport.h
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Task__epilogue.h
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/package/Task_SupportProxy.h
+SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Semaphore.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IInstance.h
+SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Semaphore__prologue.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Diags.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Log.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Assert.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Error.h
+SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Queue.h
+SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Task.h
+SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Clock.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h
+SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Event.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IInstance.h
+SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Event__prologue.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Assert.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Diags.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Log.h
+SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Queue.h
+SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Clock.h
+SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Task.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h
+SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Event__epilogue.h
+SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Semaphore__epilogue.h
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Clock.h
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/package/Clock_TimerProxy.h
 SoilMonitor_main.obj: ../i2c_driver.h
@@ -545,6 +570,56 @@ C:/ti/bios_6_83_00_18/packages/ti/sysbios/interfaces/ITaskSupport.h:
 C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Task__epilogue.h:
 
 C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/package/Task_SupportProxy.h:
+
+C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Semaphore.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IInstance.h:
+
+C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Semaphore__prologue.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Diags.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Log.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Assert.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Error.h:
+
+C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Queue.h:
+
+C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Task.h:
+
+C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Clock.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h:
+
+C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Event.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IInstance.h:
+
+C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Event__prologue.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Assert.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Diags.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Log.h:
+
+C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Queue.h:
+
+C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Clock.h:
+
+C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Task.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h:
+
+C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Event__epilogue.h:
+
+C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Semaphore__epilogue.h:
 
 C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Clock.h:
 

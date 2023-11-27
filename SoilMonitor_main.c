@@ -20,10 +20,17 @@
 #include <xdc/runtime/Error.h>
 #include <ti/sysbios/BIOS.h>
 #include <ti/sysbios/knl/Task.h>
+#include <ti/sysbios/knl/Semaphore.h>
 #include <ti/sysbios/knl/Clock.h>
 #include "i2c_driver.h"
 
 #include <Headers/F2837xD_device.h>
+
+//Task handle defined in .cfg File:
+extern const Task_Handle Tsk0;
+
+//Semaphore handle defined in .cfg File:
+extern const Semaphore_Handle mySem;
 
 //function prototypes:
 extern void DeviceInit(void);
@@ -85,6 +92,7 @@ Void myTickFxn(UArg arg)
         isrFlag = TRUE; //tell idle thread to do something 20 times per second
         isrFlag2 = TRUE;
         isrFlag3 = TRUE;
+        Semaphore_post(mySem);
     }
 }
 
@@ -124,5 +132,13 @@ Void myHwi(Void)
     //converting voltage reading of adc to water content in soil
     water_content =(((1/moisture_voltage_reading)*2.48) - 0.72)*100;
 
+}
+
+Void myTskFxn(Void)
+{
+    while (TRUE) {
+        Semaphore_pend(mySem, BIOS_WAIT_FOREVER); // wait for semaphore to be posted
+        GpioDataRegs.GPBTOGGLE.bit.GPIO34 = 1;//Toggle red LED
+    }
 }
 
