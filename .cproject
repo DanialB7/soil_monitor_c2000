@@ -101,9 +101,9 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.981519767.1003741776" name="Lab2Idle_main.c" rcbsApplicability="disable" resourcePath="Lab2Idle_main.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_20.2.exe.compilerDebug.85210995.1612979134">
+					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.981519767.1003741776" name="Lab2Idle_main.c" rcbsApplicability="disable" resourcePath="SoilMonitor_main.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_20.2.exe.compilerDebug.85210995.1612979134">
 						<tool id="com.ti.ccstudio.buildDefinitions.C2000_20.2.exe.compilerDebug.85210995.1612979134" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.exe.compilerDebug.85210995">
-							<option id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.FP_MODE.1546889299" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.FP_MODE" value="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.FP_MODE.relaxed" valueType="enumerated"/>
+							<option id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.FP_MODE.1546889299" name="Floating Point mode (--fp_mode)" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.FP_MODE" value="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.FP_MODE.relaxed" valueType="enumerated"/>
 							<inputType id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__C_SRCS.2121740273" name="C Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__C_SRCS"/>
 							<inputType id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__CPP_SRCS.600061314" name="C++ Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__CPP_SRCS"/>
 							<inputType id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__ASM_SRCS.554888718" name="Assembly Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__ASM_SRCS"/>

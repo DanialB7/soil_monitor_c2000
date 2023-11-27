@@ -18,7 +18,7 @@ ASM_SRCS += \
 C_SRCS += \
 ../F2837xD_GlobalVariableDefs.c \
 ../HwiExample_DevInit.c \
-../Lab2Idle_main.c \
+../SoilMonitor_main.c \
 ../i2c_driver.c 
 
 GEN_CMDS += \
@@ -34,7 +34,7 @@ GEN_MISC_DIRS += \
 C_DEPS += \
 ./F2837xD_GlobalVariableDefs.d \
 ./HwiExample_DevInit.d \
-./Lab2Idle_main.d \
+./SoilMonitor_main.d \
 ./i2c_driver.d 
 
 GEN_OPTS += \
@@ -44,7 +44,7 @@ OBJS += \
 ./DelayUs.obj \
 ./F2837xD_GlobalVariableDefs.obj \
 ./HwiExample_DevInit.obj \
-./Lab2Idle_main.obj \
+./SoilMonitor_main.obj \
 ./i2c_driver.obj 
 
 ASM_DEPS += \
@@ -57,13 +57,13 @@ OBJS__QUOTED += \
 "DelayUs.obj" \
 "F2837xD_GlobalVariableDefs.obj" \
 "HwiExample_DevInit.obj" \
-"Lab2Idle_main.obj" \
+"SoilMonitor_main.obj" \
 "i2c_driver.obj" 
 
 C_DEPS__QUOTED += \
 "F2837xD_GlobalVariableDefs.d" \
 "HwiExample_DevInit.d" \
-"Lab2Idle_main.d" \
+"SoilMonitor_main.d" \
 "i2c_driver.d" 
 
 GEN_FILES__QUOTED += \

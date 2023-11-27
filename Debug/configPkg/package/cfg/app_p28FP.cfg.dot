@@ -5,7 +5,7 @@ digraph configuration {
     concentrate=true;
     compound=true;
     label="\nConfiguration for configPkg/app.x28FP"
-  node [font=Helvetica, fontsize=14, fontcolor=black];  subgraph cluster0 {label=""; __cfg [label="C:/Users/SURFACE/OneDrive - BCIT/Desktop/Lab2Idle/app.cfg", color=white, fontcolor=blue];
+  node [font=Helvetica, fontsize=14, fontcolor=black];  subgraph cluster0 {label=""; __cfg [label="C:/Users/Danial/Documents/GitHub/soil_monitor_c2000/app.cfg", color=white, fontcolor=blue];
     node [font=Helvetica, fontsize=10];    subgraph cluster1 {
         label="";
         xdc_services_global__top [shape=box,label="xdc.services.global\n1,0,0,0", color=white];
@@ -185,18 +185,13 @@ digraph configuration {
     }
     subgraph cluster21 {
         label="";
-        xdc_services_io__top [shape=box,label="xdc.services.io\n1,0,0,1601763860975", color=white];
-        xdc_services_io__bot [shape=point,label="", style=invis];
-    }
-    subgraph cluster22 {
-        label="";
         ti_sysbios_family_c28_f2837x__top [shape=box,label="ti.sysbios.family.c28.f2837x\n2,0,0,0,1601763860975", color=white];
         ti_sysbios_family_c28_f2837x__bot [shape=point,label="", style=invis];
         ti_sysbios_family_c28_f2837x_TimestampProvider [style=filled,fillcolor=lightgray, label="TimestampProvider"];
         ti_sysbios_family_c28_f2837x__top -> ti_sysbios_family_c28_f2837x_TimestampProvider[style=invis];
         ti_sysbios_family_c28_f2837x_TimestampProvider -> ti_sysbios_family_c28_f2837x__bot[style=invis];
     }
-    subgraph cluster23 {
+    subgraph cluster22 {
         label="";
         ti_catalog_c2800__top [shape=box,label="ti.catalog.c2800\n1,0,0,0,1601763860975", color=white];
         ti_catalog_c2800__bot [shape=point,label="", style=invis];
@@ -204,11 +199,11 @@ digraph configuration {
         ti_catalog_c2800__top -> ti_catalog_c2800_TMS320C2812[style=invis];
         ti_catalog_c2800_TMS320C2812 -> ti_catalog_c2800__bot[style=invis];
     }
-    subgraph cluster24 {
+    subgraph cluster23 {
         label="";
         ti_catalog__top [shape=box,label="ti.catalog\n1,0,0,1601763860975", color=white];
     }
-    subgraph cluster25 {
+    subgraph cluster24 {
         label="";
         xdc_platform__top [shape=box,label="xdc.platform\n1,0,1,0", color=white];
         xdc_platform__bot [shape=point,label="", style=invis];
@@ -219,7 +214,7 @@ digraph configuration {
         xdc_platform__top -> xdc_platform_Utils[style=invis];
         xdc_platform_Utils -> xdc_platform__bot[style=invis];
     }
-    subgraph cluster26 {
+    subgraph cluster25 {
         label="";
         xdc_cfg__top [shape=box,label="xdc.cfg\n1,0,2,0", color=white];
         xdc_cfg__bot [shape=point,label="", style=invis];
@@ -233,7 +228,7 @@ digraph configuration {
         xdc_cfg__top -> xdc_cfg_SourceDir[style=invis];
         xdc_cfg_SourceDir -> xdc_cfg__bot[style=invis];
     }
-    subgraph cluster27 {
+    subgraph cluster26 {
         label="";
         ti_platforms_tms320x28__top [shape=box,label="ti.platforms.tms320x28\n1,0,0,1601763860975", color=white];
         ti_platforms_tms320x28__bot [shape=point,label="", style=invis];
@@ -241,7 +236,7 @@ digraph configuration {
         ti_platforms_tms320x28__top -> ti_platforms_tms320x28_Platform[style=invis];
         ti_platforms_tms320x28_Platform -> ti_platforms_tms320x28__bot[style=invis];
     }
-    subgraph cluster28 {
+    subgraph cluster27 {
         label="";
         ti_sysbios__top [shape=box,label="ti.sysbios\n2,0,0,0,0", color=white];
         ti_sysbios__bot [shape=point,label="", style=invis];
@@ -255,7 +250,7 @@ digraph configuration {
         ti_sysbios__top -> ti_sysbios_BIOS_RtsGateProxy[style=invis];
         ti_sysbios_BIOS_RtsGateProxy -> ti_sysbios__bot[style=invis];
     }
-    subgraph cluster29 {
+    subgraph cluster28 {
         label="";
         ti_sysbios_family_c28__top [shape=box,label="ti.sysbios.family.c28\n2,0,0,0,0", color=white];
         ti_sysbios_family_c28__bot [shape=point,label="", style=invis];
@@ -272,7 +267,7 @@ digraph configuration {
         ti_sysbios_family_c28__top -> ti_sysbios_family_c28_TaskSupport[style=invis];
         ti_sysbios_family_c28_TaskSupport -> ti_sysbios_family_c28__bot[style=invis];
     }
-    subgraph cluster30 {
+    subgraph cluster29 {
         label="";
         ti_sysbios_hal__top [shape=box,label="ti.sysbios.hal\n2,0,0,0,0", color=white];
         ti_sysbios_hal__bot [shape=point,label="", style=invis];
@@ -289,7 +284,7 @@ digraph configuration {
         ti_sysbios_hal__top -> ti_sysbios_hal_Timer_TimerProxy[style=invis];
         ti_sysbios_hal_Timer_TimerProxy -> ti_sysbios_hal__bot[style=invis];
     }
-    subgraph cluster31 {
+    subgraph cluster30 {
         label="";
         ti_sysbios_knl__top [shape=box,label="ti.sysbios.knl\n2,0,0,0,0", color=white];
         ti_sysbios_knl__bot [shape=point,label="", style=invis];
@@ -324,7 +319,7 @@ digraph configuration {
         ti_sysbios_knl__top -> ti_sysbios_knl_Task_SupportProxy[style=invis];
         ti_sysbios_knl_Task_SupportProxy -> ti_sysbios_knl__bot[style=invis];
     }
-    subgraph cluster32 {
+    subgraph cluster31 {
         label="";
         ti_sysbios_gates__top [shape=box,label="ti.sysbios.gates\n2,0,0,0,1601763860975", color=white];
         ti_sysbios_gates__bot [shape=point,label="", style=invis];
@@ -335,7 +330,7 @@ digraph configuration {
         ti_sysbios_gates__top -> ti_sysbios_gates_GateMutex[style=invis];
         ti_sysbios_gates_GateMutex -> ti_sysbios_gates__bot[style=invis];
     }
-    subgraph cluster33 {
+    subgraph cluster32 {
         label="";
         ti_sysbios_xdcruntime__top [shape=box,label="ti.sysbios.xdcruntime\n1,0,0,1601763860975", color=white];
         ti_sysbios_xdcruntime__bot [shape=point,label="", style=invis];
@@ -343,14 +338,19 @@ digraph configuration {
         ti_sysbios_xdcruntime__top -> ti_sysbios_xdcruntime_Settings[style=invis];
         ti_sysbios_xdcruntime_Settings -> ti_sysbios_xdcruntime__bot[style=invis];
     }
-    subgraph cluster34 {
+    subgraph cluster33 {
         label="";
         ti_sysbios_utils__top [shape=box,label="ti.sysbios.utils\n2,0,0,0,1601763860975", color=white];
         ti_sysbios_utils__bot [shape=point,label="", style=invis];
     }
-    subgraph cluster35 {
+    subgraph cluster34 {
         label="";
         configPkg__top [shape=box,label="configPkg\n", color=white];
+    }
+    subgraph cluster35 {
+        label="";
+        xdc_services_io__top [shape=box,label="xdc.services.io\n1,0,0,0", color=white];
+        xdc_services_io__bot [shape=point,label="", style=invis];
     }
   }
   node [font=Helvetica, fontsize=10];
@@ -359,21 +359,21 @@ digraph configuration {
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
     ti_targets_rts2800__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster16];
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
-    ti_sysbios_family_c28_f2837x__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster22];
+    ti_sysbios_family_c28_f2837x__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster21];
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
-    ti_sysbios__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster28];
+    ti_sysbios__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster27];
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
-    ti_sysbios_family_c28__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster29];
+    ti_sysbios_family_c28__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster28];
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
-    ti_sysbios_hal__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster30];
+    ti_sysbios_hal__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster29];
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
-    ti_sysbios_knl__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster31];
+    ti_sysbios_knl__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster30];
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
-    ti_sysbios_gates__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster32];
+    ti_sysbios_gates__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster31];
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
-    ti_sysbios_xdcruntime__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster33];
+    ti_sysbios_xdcruntime__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster32];
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
-    ti_sysbios_utils__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster34];
+    ti_sysbios_utils__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster33];
     ti_targets_C28_float__1_0_20__2_5 [shape=record,label="ti.targets.C28_float|1,0,20.2,5",style=filled, fillcolor=lightgrey];
-    configPkg__top -> ti_targets_C28_float__1_0_20__2_5 [ltail=cluster35];
+    configPkg__top -> ti_targets_C28_float__1_0_20__2_5 [ltail=cluster34];
 }

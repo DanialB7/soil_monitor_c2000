@@ -9,8 +9,8 @@
  */
 
 
--l"C:\Users\SURFACE\OneDrive - BCIT\Desktop\Lab2Idle\Debug\configPkg\package\cfg\app_p28FP.o28FP"
--l"C:\Users\SURFACE\OneDrive - BCIT\Desktop\Lab2Idle\src\sysbios\sysbios.a28FP"
+-l"C:\Users\Danial\Documents\GitHub\soil_monitor_c2000\Debug\configPkg\package\cfg\app_p28FP.o28FP"
+-l"C:\Users\Danial\Documents\GitHub\soil_monitor_c2000\src\sysbios\sysbios.a28FP"
 -l"C:\ti\bios_6_83_00_18\packages\ti\targets\rts2800\lib\ti.targets.rts2800.a28FP"
 -l"C:\ti\bios_6_83_00_18\packages\ti\targets\rts2800\lib\boot.a28FP"
 -l"C:\ti\bios_6_83_00_18\packages\ti\catalog\c2800\initF2837x\lib\Boot.a28FP"
@@ -87,8 +87,6 @@ SECTIONS {
 
 /* Content from xdc.runtime.knl (null): */
 
-/* Content from xdc.services.io (null): */
-
 /* Content from ti.sysbios.family.c28.f2837x (null): */
 
 /* Content from ti.catalog.c2800 (null): */
@@ -116,6 +114,8 @@ SECTIONS {
 /* Content from ti.sysbios.utils (null): */
 
 /* Content from configPkg (null): */
+
+/* Content from xdc.services.io (null): */
 
 
 

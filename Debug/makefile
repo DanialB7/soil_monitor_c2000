@@ -13,7 +13,7 @@ ORDERED_OBJS += \
 "./DelayUs.obj" \
 "./F2837xD_GlobalVariableDefs.obj" \
 "./HwiExample_DevInit.obj" \
-"./Lab2Idle_main.obj" \
+"./SoilMonitor_main.obj" \
 "./i2c_driver.obj" \
 "../F2837xD_Headers_BIOS_cpu1.cmd" \
 "../TMS320F28379D.cmd" \
@@ -159,8 +159,8 @@ Lab2Idle.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "DelayUs.obj" "F2837xD_GlobalVariableDefs.obj" "HwiExample_DevInit.obj" "Lab2Idle_main.obj" "i2c_driver.obj" 
-	-$(RM) "F2837xD_GlobalVariableDefs.d" "HwiExample_DevInit.d" "Lab2Idle_main.d" "i2c_driver.d" 
+	-$(RM) "DelayUs.obj" "F2837xD_GlobalVariableDefs.obj" "HwiExample_DevInit.obj" "SoilMonitor_main.obj" "i2c_driver.obj" 
+	-$(RM) "F2837xD_GlobalVariableDefs.d" "HwiExample_DevInit.d" "SoilMonitor_main.d" "i2c_driver.d" 
 	-$(RM) "DelayUs.d" 
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
 	-@echo 'Finished clean'

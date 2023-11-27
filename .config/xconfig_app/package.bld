@@ -11,7 +11,7 @@ var makeAssembly = false;
 var Executable = xdc.module('xdc.bld.Executable');
 
 var exeOpts = new Executable.Attrs({
-        cfgScript: 'C:/Users/SURFACE/OneDrive - BCIT/Desktop/Lab2Idle/app.cfg',
+        cfgScript: 'C:/Users/Danial/Documents/GitHub/soil_monitor_c2000/app.cfg',
         profile: 'release',
         cfgHome: 'xconfig_app',
 });
@@ -40,8 +40,8 @@ else {
 }
 
 var thisObj = {
-    cfg:        'C:/Users/SURFACE/OneDrive - BCIT/Desktop/Lab2Idle/app.cfg',
-    outputPath: 'C:/Users/SURFACE/OneDrive - BCIT/Desktop/Lab2Idle/.config/xconfig_app',
+    cfg:        'C:/Users/Danial/Documents/GitHub/soil_monitor_c2000/app.cfg',
+    outputPath: 'C:/Users/Danial/Documents/GitHub/soil_monitor_c2000/.config/xconfig_app',
     exeName:    'app' + suffix,
     exeIntName: 'app' + suffix.replace('.', '_'),
     targ:       targ,

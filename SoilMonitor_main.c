@@ -32,6 +32,8 @@ extern void DeviceInit(void);
 volatile Bool isrFlag = FALSE; //flag used by idle function
 volatile UInt tickCount = 0; //counter incremented by timer interrupt
 volatile Bool isrFlag2 = FALSE; //flag used by myIddleFxn2 //KH
+volatile Bool isrFlag3 = FALSE; //falg used by the delay function
+volatile unsigned int counter = 0; // Global counter variable
 
 float moisture_voltage_reading; //for Hwi KH
 float water_content;
@@ -44,7 +46,8 @@ Int main()
 { 
     System_printf("Enter main()\n"); //use ROV->SysMin to view the characters in the circular buffer
 
-    //initialization:
+    //initialization
+    delay200ms(); //delay to start up i2c
     DeviceInit(); //initialize processor
     start_i2c();
 
@@ -53,15 +56,35 @@ Int main()
     return(0);
 }
 
+// Function to get the current counter value
+unsigned int getCounter() {
+    return counter;
+}
+
+// Function to reset the counter
+void resetCounter() {
+    counter = 0;
+}
+
+// Function to create a 200ms delay
+void delay200ms() {
+    if(isrFlag3== TRUE) {
+        isrFlag3= FALSE;
+        resetCounter(); // Reset the counter
+        while (getCounter() < 200); // Wait for the counter to reach 200
+    }
+}
 /* ======== myTickFxn ======== */
 //Timer tick function that increments a counter and sets the isrFlag
 //Entered 100 times per second if PLL and Timer set up correctly
 Void myTickFxn(UArg arg)
 {
     tickCount++; //increment the tick counter
+    counter++;//increment the counter for delay
     if(tickCount % 100 == 0) { //KH change 5 to 100
         isrFlag = TRUE; //tell idle thread to do something 20 times per second
         isrFlag2 = TRUE;
+        isrFlag3 = TRUE;
     }
 }
 
@@ -75,7 +98,21 @@ Void myIdleFxn(Void)
        GpioDataRegs.GPATOGGLE.bit.GPIO31 = 1;
    }
 }
-
+/* ======== myIdleFxn ======== */
+//Idle function that print time in second to SysMin
+Void myIdleFxn2(Void)
+{
+    UInt8 commands[1] = {0x75};
+    UInt8 data_rx[5] = {0, 0, 0, 0, 0};
+    Task_sleep(100U);
+    while(1)
+     {
+         i2c_master_transmit(DHT20_ADDRESS, commands, 1);
+         Task_sleep(10U);
+         //i2c_master_receive(DHT20_ADDRESS, data_rx, 1);
+         //Task_sleep(10U);
+     }
+}
 /* ========= myHwi ========== */
 //Hwi function that is called by the attached hardware devices e.g ADC
 Void myHwi(Void)
