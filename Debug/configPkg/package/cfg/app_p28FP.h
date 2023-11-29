@@ -10,9 +10,6 @@
 #include <ti/sysbios/family/c28/Timer.h>
 extern const ti_sysbios_family_c28_Timer_Handle myTimer0;
 
-#include <ti/sysbios/hal/Hwi.h>
-extern const ti_sysbios_hal_Hwi_Handle hwi0;
-
 #include <ti/sysbios/hal/Timer.h>
 extern const ti_sysbios_hal_Timer_Handle myTimer1;
 

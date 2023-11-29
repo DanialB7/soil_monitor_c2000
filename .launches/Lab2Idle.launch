@@ -4,7 +4,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROGRAM.TMS320F28379D.ccxml.Texas Instruments XDS100v2 USB Debug Probe/C28xx_CPU1" value="${build_artifact:Lab2Idle}"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.TMS320F28379D.ccxml.Texas Instruments XDS100v2 USB Debug Probe/C28xx_CPU1" value="Lab2Idle"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:Lab2Idle}"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.TMS320F28379D.ccxml.Texas Instruments XDS100v2 USB Debug Probe/C28xx_CPU1" value="C:\Users\SURFACE\OneDrive - BCIT\Desktop\Lab2Idle\Debug\Lab2Idle.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.TMS320F28379D.ccxml.Texas Instruments XDS100v2 USB Debug Probe/C28xx_CPU1" value="C:\Users\Danial\Documents\GitHub\soil_monitor_c2000\Debug\Lab2Idle.out"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/Lab2Idle"/>
 </listAttribute>

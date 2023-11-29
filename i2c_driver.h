@@ -11,6 +11,7 @@
 
 //TI includes
 #include <Headers/F2837xD_device.h>
+#include <xdc/runtime/System.h>
 #include <ti/sysbios/BIOS.h>
 #include <ti/sysbios/knl/Task.h>
 #include <xdc/std.h>
