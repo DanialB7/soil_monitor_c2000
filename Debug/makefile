@@ -15,6 +15,7 @@ ORDERED_OBJS += \
 "./HwiExample_DevInit.obj" \
 "./SoilMonitor_main.obj" \
 "./i2c_driver.obj" \
+"./ultrasonic.obj" \
 "../F2837xD_Headers_BIOS_cpu1.cmd" \
 "../TMS320F28379D.cmd" \
 $(GEN_CMDS__FLAG) \
@@ -159,8 +160,8 @@ Lab2Idle.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "DelayUs.obj" "F2837xD_GlobalVariableDefs.obj" "HwiExample_DevInit.obj" "SoilMonitor_main.obj" "i2c_driver.obj" 
-	-$(RM) "F2837xD_GlobalVariableDefs.d" "HwiExample_DevInit.d" "SoilMonitor_main.d" "i2c_driver.d" 
+	-$(RM) "DelayUs.obj" "F2837xD_GlobalVariableDefs.obj" "HwiExample_DevInit.obj" "SoilMonitor_main.obj" "i2c_driver.obj" "ultrasonic.obj" 
+	-$(RM) "F2837xD_GlobalVariableDefs.d" "HwiExample_DevInit.d" "SoilMonitor_main.d" "i2c_driver.d" "ultrasonic.d" 
 	-$(RM) "DelayUs.d" 
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
 	-@echo 'Finished clean'

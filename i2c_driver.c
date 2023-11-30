@@ -2,7 +2,6 @@
 
 void start_i2c()
 {
-    System_printf("Entered start_i2c()\n");
     EALLOW;
     //protect registers
     CpuSysRegs.PCLKCR9.bit.I2C_B = 1; //Enable I2C_B clock gate
@@ -43,12 +42,10 @@ void start_i2c()
     //System_printf("IRS enabled for i2c\n");
 
     EDIS;
-    System_printf("i2c initialization complete\n");
 }
 
 bool i2c_master_transmit(UInt8 dev_addr, UInt8 *commands, uint16_t length)
 {
-    System_printf("transmission started\n");
     uint16_t i = 0;
     bool success = false;
     //To make sure master is in transmitter mode after receiving data
@@ -89,13 +86,11 @@ bool i2c_master_transmit(UInt8 dev_addr, UInt8 *commands, uint16_t length)
     }
 
     I2cbRegs.I2CMDR.bit.STP = 1; //stop condition toggle
-    System_printf("transmission ended\n");
     return true;
 }
 
 bool i2c_send_byte(UInt8 byte)
 {
-    System_printf("byte is sending\n");
     while (!I2cbRegs.I2CSTR.bit.XRDY)
     {
         if (I2cbRegs.I2CSTR.bit.NACK) //check for nack
@@ -114,7 +109,6 @@ bool i2c_send_byte(UInt8 byte)
 }
 bool i2c_received_byte(UInt8 *byte)
 {
-    System_printf("byte is starting to recieve\n");
     while (!I2cbRegs.I2CSTR.bit.RRDY)
     {
         if (I2cbRegs.I2CSTR.bit.NACK) //check for nack (gets stuck here)
@@ -130,7 +124,6 @@ bool i2c_received_byte(UInt8 *byte)
 }
 bool i2c_master_receive(UInt8 dev_addr, UInt8 *data_received, uint16_t length)
 {
-    System_printf("start receiving \n");
     bool success = false;
     uint16_t i = 0;
 
@@ -156,7 +149,6 @@ bool i2c_master_receive(UInt8 dev_addr, UInt8 *data_received, uint16_t length)
             I2caRegs.I2CMDR.bit.NACKMOD = 1;
         }
     }
-    System_printf("receiving ended\n");
     return true; //missing (check with ken later)
 }
 

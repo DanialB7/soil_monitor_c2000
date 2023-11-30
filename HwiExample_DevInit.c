@@ -17,7 +17,7 @@ extern void DelayUs(Uint16);
 void DeviceInit(void)
 {
 EALLOW;
-    //initialize GPIO lines:
+    //initialize GPIO lines for LED
     GpioCtrlRegs.GPAMUX2.bit.GPIO31 = 0; //D10 (blue LED)
     GpioCtrlRegs.GPADIR.bit.GPIO31 = 1;
     GpioDataRegs.GPACLEAR.bit.GPIO31 = 1;
@@ -25,6 +25,15 @@ EALLOW;
     GpioCtrlRegs.GPBMUX1.bit.GPIO34 = 0; //D9 (red LED)
     GpioCtrlRegs.GPBDIR.bit.GPIO34 = 1;
     GpioDataRegs.GPBCLEAR.bit.GPIO34 = 1;
+
+    //initialize GPIO for Ultrasonic Sensor
+    GpioCtrlRegs.GPBMUX2.bit.GPIO52 = 0; //Trig pin ultrasonic
+    GpioCtrlRegs.GPBDIR.bit.GPIO52 = 1; // configure to output
+    GpioDataRegs.GPBCLEAR.bit.GPIO52 = 1; //clear
+
+    GpioCtrlRegs.GPDMUX1.bit.GPIO97 = 0; //Echo pin ultrasonic
+    GpioCtrlRegs.GPDDIR.bit.GPIO97 = 0; // configure to input
+    GpioDataRegs.GPDCLEAR.bit.GPIO97 = 1; //clear
 
     //---------------------------------------------------------------
     // INITIALIZE A-D
@@ -38,8 +47,6 @@ EALLOW;
 
     //wait 1 ms after power-up before using the ADC:
     DelayUs(1000);
-
-
 
     AdcaRegs.ADCSOC0CTL.bit.TRIGSEL = 2; //trigger source = CPU1 Timer 1
     AdcaRegs.ADCSOC0CTL.bit.CHSEL = 5; //set SOC0 to sample A5

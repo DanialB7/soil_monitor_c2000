@@ -19,7 +19,8 @@ C_SRCS += \
 ../F2837xD_GlobalVariableDefs.c \
 ../HwiExample_DevInit.c \
 ../SoilMonitor_main.c \
-../i2c_driver.c 
+../i2c_driver.c \
+../ultrasonic.c 
 
 GEN_CMDS += \
 ./configPkg/linker.cmd 
@@ -35,7 +36,8 @@ C_DEPS += \
 ./F2837xD_GlobalVariableDefs.d \
 ./HwiExample_DevInit.d \
 ./SoilMonitor_main.d \
-./i2c_driver.d 
+./i2c_driver.d \
+./ultrasonic.d 
 
 GEN_OPTS += \
 ./configPkg/compiler.opt 
@@ -45,7 +47,8 @@ OBJS += \
 ./F2837xD_GlobalVariableDefs.obj \
 ./HwiExample_DevInit.obj \
 ./SoilMonitor_main.obj \
-./i2c_driver.obj 
+./i2c_driver.obj \
+./ultrasonic.obj 
 
 ASM_DEPS += \
 ./DelayUs.d 
@@ -58,13 +61,15 @@ OBJS__QUOTED += \
 "F2837xD_GlobalVariableDefs.obj" \
 "HwiExample_DevInit.obj" \
 "SoilMonitor_main.obj" \
-"i2c_driver.obj" 
+"i2c_driver.obj" \
+"ultrasonic.obj" 
 
 C_DEPS__QUOTED += \
 "F2837xD_GlobalVariableDefs.d" \
 "HwiExample_DevInit.d" \
 "SoilMonitor_main.d" \
-"i2c_driver.d" 
+"i2c_driver.d" \
+"ultrasonic.d" 
 
 GEN_FILES__QUOTED += \
 "configPkg\linker.cmd" \

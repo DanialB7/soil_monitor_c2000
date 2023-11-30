@@ -1,1 +1,1 @@
-"./DelayUs.obj" "./F2837xD_GlobalVariableDefs.obj" "./HwiExample_DevInit.obj" "./SoilMonitor_main.obj" "./i2c_driver.obj" "../F2837xD_Headers_BIOS_cpu1.cmd" "../TMS320F28379D.cmd" -l"configPkg/linker.cmd" -llibc.a 
+"./DelayUs.obj" "./F2837xD_GlobalVariableDefs.obj" "./HwiExample_DevInit.obj" "./SoilMonitor_main.obj" "./i2c_driver.obj" "./ultrasonic.obj" "../F2837xD_Headers_BIOS_cpu1.cmd" "../TMS320F28379D.cmd" -l"configPkg/linker.cmd" -llibc.a 

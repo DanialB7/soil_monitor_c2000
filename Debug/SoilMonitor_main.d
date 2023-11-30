@@ -167,6 +167,7 @@ SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtim
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/interfaces/ITaskSupport.h
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Task__epilogue.h
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/package/Task_SupportProxy.h
+SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Swi.h
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Semaphore.h
 SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
 SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IInstance.h
@@ -234,6 +235,10 @@ SoilMonitor_main.obj: C:/Users/Danial/Documents/GitHub/soil_monitor_c2000/Header
 SoilMonitor_main.obj: C:/Users/Danial/Documents/GitHub/soil_monitor_c2000/Headers/F2837xD_xbar.h
 SoilMonitor_main.obj: C:/Users/Danial/Documents/GitHub/soil_monitor_c2000/Headers/F2837xD_xint.h
 SoilMonitor_main.obj: C:/Users/Danial/Documents/GitHub/soil_monitor_c2000/Headers/F2837xD_can.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/System.h
+SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/BIOS.h
+SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Task.h
+SoilMonitor_main.obj: ../ultrasonic.h
 SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/System.h
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/BIOS.h
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Task.h
@@ -572,6 +577,8 @@ C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Task__epilogue.h:
 
 C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/package/Task_SupportProxy.h:
 
+C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Swi.h:
+
 C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Semaphore.h:
 
 C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h:
@@ -705,6 +712,14 @@ C:/Users/Danial/Documents/GitHub/soil_monitor_c2000/Headers/F2837xD_xbar.h:
 C:/Users/Danial/Documents/GitHub/soil_monitor_c2000/Headers/F2837xD_xint.h:
 
 C:/Users/Danial/Documents/GitHub/soil_monitor_c2000/Headers/F2837xD_can.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/System.h:
+
+C:/ti/bios_6_83_00_18/packages/ti/sysbios/BIOS.h:
+
+C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Task.h:
+
+../ultrasonic.h:
 
 C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/System.h:
 
