@@ -62,6 +62,8 @@
 									<listOptionValue builtIn="false" value="CPU1"/>
 								</option>
 								<option id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.GEN_FUNC_SUBSECTIONS.1121227339" name="Place each function in a separate subsection (--gen_func_subsections, -mo)" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.GEN_FUNC_SUBSECTIONS" useByScannerDiscovery="false" value="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.GEN_FUNC_SUBSECTIONS.on" valueType="enumerated"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.OPT_FOR_SPEED.734207956" name="Speed vs. size trade-offs (--opt_for_speed, -mf)" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.OPT_FOR_SPEED" value="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.OPT_FOR_SPEED.0" valueType="enumerated"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.OPT_LEVEL.666894187" name="Optimization level (--opt_level, -O)" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.OPT_LEVEL" value="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.OPT_LEVEL.off" valueType="enumerated"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__C_SRCS.686803636" name="C Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__C_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__CPP_SRCS.590158843" name="C++ Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__CPP_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__ASM_SRCS.1467816508" name="Assembly Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__ASM_SRCS"/>
@@ -112,7 +114,7 @@
 					</fileInfo>
 					<fileInfo id="com.ti.ccstudio.buildDefinitions.C2000.Debug.981519767.2074435973" name="ultrasonic.c" rcbsApplicability="disable" resourcePath="ultrasonic.c" toolsToInvoke="com.ti.ccstudio.buildDefinitions.C2000_20.2.exe.compilerDebug.85210995.349334151">
 						<tool id="com.ti.ccstudio.buildDefinitions.C2000_20.2.exe.compilerDebug.85210995.349334151" name="C2000 Compiler" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.exe.compilerDebug.85210995">
-							<option id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.FP_MODE.903260167" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.FP_MODE" value="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.FP_MODE.relaxed" valueType="enumerated"/>
+							<option id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.FP_MODE.903260167" name="Floating Point mode (--fp_mode)" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.FP_MODE" value="com.ti.ccstudio.buildDefinitions.C2000_20.2.compilerID.FP_MODE.relaxed" valueType="enumerated"/>
 							<inputType id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__C_SRCS.53970398" name="C Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__C_SRCS"/>
 							<inputType id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__CPP_SRCS.203859995" name="C++ Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__CPP_SRCS"/>
 							<inputType id="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__ASM_SRCS.1910078488" name="Assembly Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_20.2.compiler.inputType__ASM_SRCS"/>

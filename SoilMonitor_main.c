@@ -13,6 +13,8 @@
 
 #define VREFHI 3.0 //reference voltage for capacitive soil moisture sensor
 #define DHT20_ADDRESS 0x38 // address for I2C temperature and humidity sensor
+#define BUFFER_SIZE 64
+#define WATER_LEVEL 13 //set the lowest water level for tank in cm
 
 //includes:
 #include <xdc/std.h>
@@ -26,6 +28,7 @@
 #include "i2c_driver.h"
 #include "ultrasonic.h"
 
+
 #include <Headers/F2837xD_device.h>
 
 //Swi handle defined in .cfg file:
@@ -37,8 +40,9 @@ extern const Task_Handle Tsk0;
 extern const Task_Handle Tsk1;
 
 //Semaphore handle defined in .cfg File:
-extern const Semaphore_Handle mySem;
+extern const Semaphore_Handle mySem; //initialize semaphore
 extern const Semaphore_Handle mySem1;
+
 
 //function prototypes:
 extern void DeviceInit(void);
@@ -46,27 +50,42 @@ extern void DeviceInit(void);
 
 //declare global variables:
 volatile Bool isrFlag = FALSE; //flag used by idle function
+volatile Bool isrFlag1 = FALSE; //flag used by swi and tsk to stop if water level is below a certain threshold
 volatile UInt16 tickCount = 0; //counter incremented by timer interrupt
-
+int once = 0;
+int init = 0;
+//sensor variables
 float moisture_voltage_reading; //for Hwi KH
 float water_content;
 float humidity;
 float temperature;
+//buffer variables
+float temperature_buffer [BUFFER_SIZE] = {0}; //Initialize buffer and set all elements to 0 //DB
+int counter_buffer= 0;
+float sum = 0;
+int num_samples = 0;
+float movingAverage;
 float distance;
-
+unsigned long int  ECAP_data;
 
 /* ======== main ======== */
 Int main()
 { 
     //initialization
-
     DeviceInit(); //initialize processor
     start_i2c(); // initialize the i2c
 
     //jump to RTOS (does not return):
-
     BIOS_start();
     return(0);
+}
+/* ======== ECAP_ISR ======== */
+//HWI configured ISR function as a result of eCAP interrupt on ultrasonic ECHO pin output
+//Collects time data captured in the corresponding register and clears all the flags
+Void ECAP_ISR(UArg arg)
+{
+ECAP_data = ECap1Regs.CAP2;
+ECap1Regs.ECCLR.all = 0xFF; // Clear flag
 }
 
 /* ======== myTickFxn ======== */
@@ -75,10 +94,14 @@ Int main()
 Void myTickFxn(UArg arg)
 {
     tickCount++; //increment the tick counter
-    if(tickCount % 100000 == 0) { //DB changed to 100000 to update every 10ms
+    if(tickCount % 10000 == 0) { //DB changed to 100000 to update every 10ms
         isrFlag = TRUE; //tell idle thread to do something 20 times per second
         Semaphore_post(mySem);
+    }
+    if (init == 0)
+    {
         Semaphore_post(mySem1);
+        init = 1;
     }
 }
 
@@ -107,7 +130,15 @@ Void mySwiFxn(Void)
 {
        //converting voltage reading of adc to water content in soil
        water_content =(((1/moisture_voltage_reading)*2.48) - 0.72)*100;
+       if ((water_content < 30) && (isrFlag1 == FALSE))
+       {
+           GpioDataRegs.GPASET.bit.GPIO22 = 1;
 
+       }
+       else
+       {
+           GpioDataRegs.GPACLEAR.bit.GPIO22 = 1;
+       }
 }
 
 /* ========= myTskFxn ========== */
@@ -117,11 +148,8 @@ Void myTskFxn(Void)
     while (TRUE) {
         Semaphore_pend(mySem, BIOS_WAIT_FOREVER); // wait for semaphore to be posted
         // Step 1: Check sensor status
-
-        int once = 0;
         UInt8 status;
         UInt8 status_cmd = 0x71;
-        int i;
         if (once == 0){
         i2c_master_transmit(DHT20_ADDRESS, &status_cmd, 1);
         Task_sleep(20); // Short delay for transmission to complete
@@ -132,12 +160,11 @@ Void myTskFxn(Void)
         // Step 2: Initialize sensor if not correctly setup
 
         if (status != 0x18) {
-        UInt8 init_cmds[] = {0x1B, 0x1C, 0x1E};
-        for (i = 0; i < sizeof(init_cmds); i++) {
-            i2c_master_transmit(DHT20_ADDRESS, &init_cmds[i], 1);
-            Task_sleep(20); // Allow time for each command
+            resetRegister(0x1B);
+            resetRegister(0x1C);
+            resetRegister(0x1E);
+            Task_sleep(20); // Allow time for command
             }
-        }
 
        // Step 3: Send measurement command to gather data
 
@@ -162,6 +189,31 @@ Void myTskFxn(Void)
        UInt32 upsized = data_rx[3]; // converting UInt16 to UInt 32 to shift without data loss
        UInt32 ST = ((upsized & 0x0F) << 16) | (data_rx[4] << 8) | data_rx[5];
        temperature = ((float)ST / 1048576) * 200.0 - 50.0;
+
+       //////////////////////////////////////////////////////////
+       // storing values in circular buffer called temperature_buffer and implementing moving average filter
+       // Subtract the oldest temperature from the sum if buffer is full
+       if (num_samples == BUFFER_SIZE) {
+           sum -= temperature_buffer[counter_buffer];
+       }
+
+       // Add new temperature to buffer
+       temperature_buffer[counter_buffer] = temperature;
+
+       // Add new temperature to sum
+       sum += temperature;
+
+       // Increment counter and wrap around if needed
+       counter_buffer = (counter_buffer + 1) % BUFFER_SIZE;
+
+       // Increment number of samples until the buffer is first filled
+       if (num_samples < BUFFER_SIZE) {
+           num_samples++;
+       }
+
+       // Calculate moving average
+       movingAverage = sum / (float)num_samples;
+       Semaphore_post(mySem);
     }
 }
 /* ========= myTskFxn1 ========== */
@@ -169,37 +221,27 @@ Void myTskFxn(Void)
 Void myTskFxn1(Void)
 {
     while (TRUE) {
-        Semaphore_pend(mySem1, BIOS_WAIT_FOREVER); // wait for semaphore to be posted
-
-        // local variables
-        UInt32 duration = 0;
-        UInt ticksstarted= 0; //counter incremented by timer interrupt
-        UInt tickscounted = 0; //counter incremented by timer interrupt
 
         // Set trigger pin high
         GpioDataRegs.GPBSET.bit.GPIO52 = 1;
-        // Delay for 10 microseconds
+        // Delay for 10 Us
         Task_sleep(10);
         // Set trigger pin low
         GpioDataRegs.GPBCLEAR.bit.GPIO52 = 1;
 
-        // Wait for the echo pin to go high
-        while(GpioDataRegs.GPDDAT.bit.GPIO97 == 0);
+        // distance calculated based on time and speed of sound
+        Semaphore_pend(mySem1, BIOS_WAIT_FOREVER); // wait for semaphore to be posted
+        distance = calculateDistance(ECAP_data);
+        Semaphore_post(mySem1);
 
-        // Echo pin is high, record start time
-        ticksstarted = tickCount;
-
-        // Wait for the echo pin to go low
-        while(GpioDataRegs.GPDDAT.bit.GPIO97 == 1);
-
-         // Echo pin is low, record stop time
-        tickscounted = tickCount;
-
-         // Calculate duration in us
-         duration = tickscounted - ticksstarted;
-         // distance calculated based on time and speed of sound
-         distance = calculateDistance(duration);
-
-         // Do something with the distance ( post to water the plants?? later problem)
+        // check distance to see if its within threshold
+        if (distance > WATER_LEVEL)
+        {
+            isrFlag1 = TRUE;
+        }
+        else
+        {
+            isrFlag1 = FALSE;
+        }
     }
 }

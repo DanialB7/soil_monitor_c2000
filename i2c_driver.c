@@ -1,5 +1,7 @@
 #include "i2c_driver.h"
 
+#define DHT20_ADDRESS 0x38 // address for I2C temperature and humidity sensor
+
 void start_i2c()
 {
     EALLOW;
@@ -93,6 +95,7 @@ bool i2c_send_byte(UInt8 byte)
 {
     while (!I2cbRegs.I2CSTR.bit.XRDY)
     {
+
         if (I2cbRegs.I2CSTR.bit.NACK) //check for nack
         {
             I2cbRegs.I2CSTR.bit.NACK = 1;
@@ -106,6 +109,19 @@ bool i2c_send_byte(UInt8 byte)
 
     return true;
 
+}
+bool resetRegister(UInt8 reg)
+{
+    UInt8 value[3];
+    UInt8 data[] = {reg, 0x00, 0x00};
+    uint16_t length = sizeof(data) / sizeof(data[0]);
+    i2c_master_transmit(DHT20_ADDRESS,data,length);
+
+    i2c_master_receive (DHT20_ADDRESS,value,3);
+    UInt8 data1[] = {0xB0|reg, value[1], value[2]};
+
+    i2c_master_transmit(DHT20_ADDRESS,data1,length);
+    return true;
 }
 bool i2c_received_byte(UInt8 *byte)
 {

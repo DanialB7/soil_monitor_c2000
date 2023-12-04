@@ -17,7 +17,7 @@ extern void DelayUs(Uint16);
 void DeviceInit(void)
 {
 EALLOW;
-    //initialize GPIO lines for LED
+    //Initialize GPIO lines for LED
     GpioCtrlRegs.GPAMUX2.bit.GPIO31 = 0; //D10 (blue LED)
     GpioCtrlRegs.GPADIR.bit.GPIO31 = 1;
     GpioDataRegs.GPACLEAR.bit.GPIO31 = 1;
@@ -26,14 +26,17 @@ EALLOW;
     GpioCtrlRegs.GPBDIR.bit.GPIO34 = 1;
     GpioDataRegs.GPBCLEAR.bit.GPIO34 = 1;
 
-    //initialize GPIO for Ultrasonic Sensor
+    //Initialize GPIO for Ultrasonic Sensor
     GpioCtrlRegs.GPBMUX2.bit.GPIO52 = 0; //Trig pin ultrasonic
     GpioCtrlRegs.GPBDIR.bit.GPIO52 = 1; // configure to output
     GpioDataRegs.GPBCLEAR.bit.GPIO52 = 1; //clear
 
-    GpioCtrlRegs.GPDMUX1.bit.GPIO97 = 0; //Echo pin ultrasonic
-    GpioCtrlRegs.GPDDIR.bit.GPIO97 = 0; // configure to input
-    GpioDataRegs.GPDCLEAR.bit.GPIO97 = 1; //clear
+    //Initialize GPIO for water pump
+    GpioCtrlRegs.GPAMUX2.bit.GPIO22 = 0; //Trig pin ultrasonic
+    GpioCtrlRegs.GPADIR.bit.GPIO22 = 1; // configure to output
+    GpioDataRegs.GPACLEAR.bit.GPIO22 = 1; //clear
+
+
 
     //---------------------------------------------------------------
     // INITIALIZE A-D
@@ -53,5 +56,32 @@ EALLOW;
     AdcaRegs.ADCSOC0CTL.bit.ACQPS = 139; //set SOC0 window to 139 SYSCLK cycles
     AdcaRegs.ADCINTSEL1N2.bit.INT1SEL = 0; //connect interrupt ADCINT1 to EOC0
     AdcaRegs.ADCINTSEL1N2.bit.INT1E = 1; //enable interrupt ADCINT1
+
+
+    CpuSysRegs.PCLKCR3.bit.ECAP1 = 1;
+    GpioCtrlRegs.GPAQSEL1.bit.GPIO5 = 0;
+    GpioCtrlRegs.GPAMUX1.bit.GPIO5 = 3; //Echo pin ultrasonic
+    InputXbarRegs.INPUT7SELECT = 5;
+    GpioCtrlRegs.GPADIR.bit.GPIO5 = 0; // configure to input
+    GpioDataRegs.GPACLEAR.bit.GPIO5 = 1; //clear
+
+    ECap1Regs.ECCLR.all = 0xFFFF;
+    ECap1Regs.ECCTL1.bit.CAP1POL = 0;
+    ECap1Regs.ECCTL1.bit.CAP2POL = 1;
+    ECap1Regs.ECCTL1.bit.CAP3POL = 0;
+    ECap1Regs.ECCTL1.bit.CAP4POL = 1;
+    ECap1Regs.ECCTL1.bit.CTRRST1 = 1;
+    ECap1Regs.ECCTL1.bit.CTRRST2 = 1;
+    ECap1Regs.ECCTL1.bit.CTRRST3 = 1;
+    ECap1Regs.ECCTL1.bit.CTRRST4 = 1;
+    ECap1Regs.ECCTL1.bit.CAPLDEN = 1;
+    ECap1Regs.ECCTL1.bit.PRESCALE = 0;
+    ECap1Regs.ECCTL2.bit.CAP_APWM = 0;
+    ECap1Regs.ECCTL2.bit.CONT_ONESHT = 0;
+    ECap1Regs.ECCTL2.bit.SYNCO_SEL = 2;
+    ECap1Regs.ECCTL2.bit.SYNCI_EN = 0;
+    ECap1Regs.ECCTL2.bit.TSCTRSTOP = 1; // Allow TSCTR to run
+    ECap1Regs.ECEINT.bit.CEVT2 = 1;
+
 EDIS;
 }

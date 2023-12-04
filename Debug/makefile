@@ -12,7 +12,7 @@ GEN_CMDS__FLAG := -l"configPkg/linker.cmd"
 ORDERED_OBJS += \
 "./DelayUs.obj" \
 "./F2837xD_GlobalVariableDefs.obj" \
-"./HwiExample_DevInit.obj" \
+"./SoilMonitor_DevInit.obj" \
 "./SoilMonitor_main.obj" \
 "./i2c_driver.obj" \
 "./ultrasonic.obj" \
@@ -146,7 +146,7 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 Lab2Idle.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: "$@"'
 	@echo 'Invoking: C2000 Linker'
-	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 --define=CPU1 -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=coffabi -z -m"Lab2Idle.map" --stack_size=0x200 --warn_sections -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/lib" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="Lab2Idle_linkInfo.xml" --rom_model -o "Lab2Idle.out" $(ORDERED_OBJS)
+	"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/bin/cl2000" -v28 -ml -mt --cla_support=cla1 --float_support=fpu32 --tmu_support=tmu0 --vcu_support=vcu2 -Ooff --opt_for_speed=0 --define=CPU1 -g --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=coffabi -z -m"Lab2Idle.map" --stack_size=0x200 --warn_sections -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/lib" -i"C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --xml_link_info="Lab2Idle_linkInfo.xml" --rom_model -o "Lab2Idle.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: "$@"'
 	@echo ' '
 
@@ -160,8 +160,8 @@ Lab2Idle.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "DelayUs.obj" "F2837xD_GlobalVariableDefs.obj" "HwiExample_DevInit.obj" "SoilMonitor_main.obj" "i2c_driver.obj" "ultrasonic.obj" 
-	-$(RM) "F2837xD_GlobalVariableDefs.d" "HwiExample_DevInit.d" "SoilMonitor_main.d" "i2c_driver.d" "ultrasonic.d" 
+	-$(RM) "DelayUs.obj" "F2837xD_GlobalVariableDefs.obj" "SoilMonitor_DevInit.obj" "SoilMonitor_main.obj" "i2c_driver.obj" "ultrasonic.obj" 
+	-$(RM) "F2837xD_GlobalVariableDefs.d" "SoilMonitor_DevInit.d" "SoilMonitor_main.d" "i2c_driver.d" "ultrasonic.d" 
 	-$(RM) "DelayUs.d" 
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
 	-@echo 'Finished clean'
