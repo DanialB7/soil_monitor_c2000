@@ -18,6 +18,8 @@
 
 //includes:
 #include <xdc/std.h>
+#include <stdint.h>
+#include <stdio.h>
 #include <xdc/runtime/System.h>
 #include <xdc/runtime/Error.h>
 #include <ti/sysbios/BIOS.h>
@@ -27,7 +29,7 @@
 #include <ti/sysbios/knl/Clock.h>
 #include "i2c_driver.h"
 #include "ultrasonic.h"
-
+#include "28379D_uart.h"
 
 #include <Headers/F2837xD_device.h>
 
@@ -38,11 +40,12 @@ extern const Swi_Handle Swi1;
 //Task handle defined in .cfg File:
 extern const Task_Handle Tsk0;
 extern const Task_Handle Tsk1;
+extern const Task_Handle Tsk2;
 
 //Semaphore handle defined in .cfg File:
 extern const Semaphore_Handle mySem; //initialize semaphore
 extern const Semaphore_Handle mySem1;
-
+extern const Semaphore_Handle mySem2;
 
 //function prototypes:
 extern void DeviceInit(void);
@@ -68,13 +71,14 @@ float movingAverage;
 float distance;
 unsigned long int  ECAP_data;
 
+
 /* ======== main ======== */
 Int main()
 { 
     //initialization
     DeviceInit(); //initialize processor
-    start_i2c(); // initialize the i2c
-
+    start_i2c(); // initialize the i2
+    uart_init(115200UL);
     //jump to RTOS (does not return):
     BIOS_start();
     return(0);
@@ -95,11 +99,12 @@ Void myTickFxn(UArg arg)
 {
     tickCount++; //increment the tick counter
     if(tickCount % 10000 == 0) { //DB changed to 100000 to update every 10ms
-        isrFlag = TRUE; //tell idle thread to do something 20 times per second
         Semaphore_post(mySem);
+        isrFlag = TRUE; //tell idle thread to do something 20 times per second
     }
     if (init == 0)
     {
+        Semaphore_post(mySem2);
         Semaphore_post(mySem1);
         init = 1;
     }
@@ -141,6 +146,21 @@ Void mySwiFxn(Void)
        }
 }
 
+
+/* ========= myTskFxn1 ========== */
+//Tsk1 function that is called to interface with UART ESP32
+Void myTskFxn2(Void)
+{
+    while (TRUE) {
+        Semaphore_pend(mySem2, BIOS_WAIT_FOREVER); // wait for semaphore to be posted
+        char str[50];
+        sprintf(str,"Temp: %.3f \n", movingAverage);
+        // Transmit the string over UART
+        uart_tx_str(str);
+    }
+}
+
+
 /* ========= myTskFxn ========== */
 //Tsk function that is called to interface with I2C Temp/Humidity and process results
 Void myTskFxn(Void)
@@ -178,6 +198,7 @@ Void myTskFxn(Void)
        i2c_master_receive(DHT20_ADDRESS, data_rx, 6);
        Task_sleep(20); // Short delay after reading data
 
+
        // Extracting humidity
 
        UInt32 upsizing = data_rx[1];
@@ -210,9 +231,9 @@ Void myTskFxn(Void)
        if (num_samples < BUFFER_SIZE) {
            num_samples++;
        }
-
        // Calculate moving average
        movingAverage = sum / (float)num_samples;
+       Semaphore_post(mySem2);
        Semaphore_post(mySem);
     }
 }

@@ -99,9 +99,9 @@ SECTIONS {
 
 /* Content from ti.platforms.tms320x28 (null): */
 
-/* Content from ti.sysbios (null): */
-
 /* Content from ti.sysbios.hal (null): */
+
+/* Content from ti.sysbios (null): */
 
 /* Content from ti.sysbios.family.c28 (null): */
 

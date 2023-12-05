@@ -10,6 +10,7 @@ GEN_OPTS__FLAG := --cmd_file="configPkg/compiler.opt"
 GEN_CMDS__FLAG := -l"configPkg/linker.cmd" 
 
 ORDERED_OBJS += \
+"./28379D_uart.obj" \
 "./DelayUs.obj" \
 "./F2837xD_GlobalVariableDefs.obj" \
 "./SoilMonitor_DevInit.obj" \
@@ -160,8 +161,8 @@ Lab2Idle.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "DelayUs.obj" "F2837xD_GlobalVariableDefs.obj" "SoilMonitor_DevInit.obj" "SoilMonitor_main.obj" "i2c_driver.obj" "ultrasonic.obj" 
-	-$(RM) "F2837xD_GlobalVariableDefs.d" "SoilMonitor_DevInit.d" "SoilMonitor_main.d" "i2c_driver.d" "ultrasonic.d" 
+	-$(RM) "28379D_uart.obj" "DelayUs.obj" "F2837xD_GlobalVariableDefs.obj" "SoilMonitor_DevInit.obj" "SoilMonitor_main.obj" "i2c_driver.obj" "ultrasonic.obj" 
+	-$(RM) "28379D_uart.d" "F2837xD_GlobalVariableDefs.d" "SoilMonitor_DevInit.d" "SoilMonitor_main.d" "i2c_driver.d" "ultrasonic.d" 
 	-$(RM) "DelayUs.d" 
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
 	-@echo 'Finished clean'

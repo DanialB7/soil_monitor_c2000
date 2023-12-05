@@ -16,6 +16,7 @@ ASM_SRCS += \
 ../DelayUs.asm 
 
 C_SRCS += \
+../28379D_uart.c \
 ../F2837xD_GlobalVariableDefs.c \
 ../SoilMonitor_DevInit.c \
 ../SoilMonitor_main.c \
@@ -33,6 +34,7 @@ GEN_MISC_DIRS += \
 ./configPkg/ 
 
 C_DEPS += \
+./28379D_uart.d \
 ./F2837xD_GlobalVariableDefs.d \
 ./SoilMonitor_DevInit.d \
 ./SoilMonitor_main.d \
@@ -43,6 +45,7 @@ GEN_OPTS += \
 ./configPkg/compiler.opt 
 
 OBJS += \
+./28379D_uart.obj \
 ./DelayUs.obj \
 ./F2837xD_GlobalVariableDefs.obj \
 ./SoilMonitor_DevInit.obj \
@@ -57,6 +60,7 @@ GEN_MISC_DIRS__QUOTED += \
 "configPkg\" 
 
 OBJS__QUOTED += \
+"28379D_uart.obj" \
 "DelayUs.obj" \
 "F2837xD_GlobalVariableDefs.obj" \
 "SoilMonitor_DevInit.obj" \
@@ -65,6 +69,7 @@ OBJS__QUOTED += \
 "ultrasonic.obj" 
 
 C_DEPS__QUOTED += \
+"28379D_uart.d" \
 "F2837xD_GlobalVariableDefs.d" \
 "SoilMonitor_DevInit.d" \
 "SoilMonitor_main.d" \
@@ -78,12 +83,13 @@ GEN_FILES__QUOTED += \
 ASM_DEPS__QUOTED += \
 "DelayUs.d" 
 
-ASM_SRCS__QUOTED += \
-"../DelayUs.asm" 
-
 C_SRCS__QUOTED += \
+"../28379D_uart.c" \
 "../F2837xD_GlobalVariableDefs.c" \
 "../SoilMonitor_DevInit.c" \
 "../i2c_driver.c" 
+
+ASM_SRCS__QUOTED += \
+"../DelayUs.asm" 
 
 

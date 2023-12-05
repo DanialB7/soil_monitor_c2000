@@ -16,6 +16,7 @@ SoilMonitor_main.obj: C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/i
 SoilMonitor_main.obj: C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/include/sys/stdint.h
 SoilMonitor_main.obj: C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/include/machine/_stdint.h
 SoilMonitor_main.obj: C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/include/sys/_stdint.h
+SoilMonitor_main.obj: C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/include/stdio.h
 SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/System.h
 SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/xdc.h
 SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
@@ -242,6 +243,7 @@ SoilMonitor_main.obj: ../ultrasonic.h
 SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/System.h
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/BIOS.h
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Task.h
+SoilMonitor_main.obj: ../28379D_uart.h
 
 ../SoilMonitor_main.c:
 
@@ -274,6 +276,8 @@ C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/include/sys/stdint.h:
 C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/include/machine/_stdint.h:
 
 C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/include/sys/_stdint.h:
+
+C:/ti/ccs1040/ccs/tools/compiler/ti-cgt-c2000_20.2.5.LTS/include/stdio.h:
 
 C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/System.h:
 
@@ -726,4 +730,6 @@ C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/System.h:
 C:/ti/bios_6_83_00_18/packages/ti/sysbios/BIOS.h:
 
 C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Task.h:
+
+../28379D_uart.h:
 

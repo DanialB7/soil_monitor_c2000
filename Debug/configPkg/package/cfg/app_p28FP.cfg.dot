@@ -250,6 +250,32 @@ digraph configuration {
     }
     subgraph cluster27 {
         label="";
+        ti_sysbios_hal__top [shape=box,label="ti.sysbios.hal\n2,0,0,0,0", color=white];
+        ti_sysbios_hal__bot [shape=point,label="", style=invis];
+        ti_sysbios_hal_Core [style=filled,fillcolor=lightgray, label="Core"];
+        ti_sysbios_hal__top -> ti_sysbios_hal_Core[style=invis];
+        ti_sysbios_hal_Core -> ti_sysbios_hal__bot[style=invis];
+        ti_sysbios_hal_CoreNull [style=filled,fillcolor=lightgray, label="CoreNull"];
+        ti_sysbios_hal__top -> ti_sysbios_hal_CoreNull[style=invis];
+        ti_sysbios_hal_CoreNull -> ti_sysbios_hal__bot[style=invis];
+        ti_sysbios_hal_Hwi [style=filled,fillcolor=lightgray, label="Hwi"];
+        ti_sysbios_hal__top -> ti_sysbios_hal_Hwi[style=invis];
+        ti_sysbios_hal_Hwi -> ti_sysbios_hal__bot[style=invis];
+        ti_sysbios_hal_Timer [style=filled,fillcolor=lightgray, label="Timer"];
+        ti_sysbios_hal__top -> ti_sysbios_hal_Timer[style=invis];
+        ti_sysbios_hal_Timer -> ti_sysbios_hal__bot[style=invis];
+        ti_sysbios_hal_Core_CoreProxy [style=filled,fillcolor=lightgray, label="Core_CoreProxy"];
+        ti_sysbios_hal__top -> ti_sysbios_hal_Core_CoreProxy[style=invis];
+        ti_sysbios_hal_Core_CoreProxy -> ti_sysbios_hal__bot[style=invis];
+        ti_sysbios_hal_Hwi_HwiProxy [style=filled,fillcolor=lightgray, label="Hwi_HwiProxy"];
+        ti_sysbios_hal__top -> ti_sysbios_hal_Hwi_HwiProxy[style=invis];
+        ti_sysbios_hal_Hwi_HwiProxy -> ti_sysbios_hal__bot[style=invis];
+        ti_sysbios_hal_Timer_TimerProxy [style=filled,fillcolor=lightgray, label="Timer_TimerProxy"];
+        ti_sysbios_hal__top -> ti_sysbios_hal_Timer_TimerProxy[style=invis];
+        ti_sysbios_hal_Timer_TimerProxy -> ti_sysbios_hal__bot[style=invis];
+    }
+    subgraph cluster28 {
+        label="";
         ti_sysbios__top [shape=box,label="ti.sysbios\n2,0,0,0,0", color=white];
         ti_sysbios__bot [shape=point,label="", style=invis];
         ti_sysbios_BIOS [style=filled,fillcolor=lightgray, label="BIOS"];
@@ -261,23 +287,6 @@ digraph configuration {
         ti_sysbios_BIOS_RtsGateProxy [style=filled,fillcolor=lightgray, label="BIOS_RtsGateProxy"];
         ti_sysbios__top -> ti_sysbios_BIOS_RtsGateProxy[style=invis];
         ti_sysbios_BIOS_RtsGateProxy -> ti_sysbios__bot[style=invis];
-    }
-    subgraph cluster28 {
-        label="";
-        ti_sysbios_hal__top [shape=box,label="ti.sysbios.hal\n2,0,0,0,0", color=white];
-        ti_sysbios_hal__bot [shape=point,label="", style=invis];
-        ti_sysbios_hal_Hwi [style=filled,fillcolor=lightgray, label="Hwi"];
-        ti_sysbios_hal__top -> ti_sysbios_hal_Hwi[style=invis];
-        ti_sysbios_hal_Hwi -> ti_sysbios_hal__bot[style=invis];
-        ti_sysbios_hal_Timer [style=filled,fillcolor=lightgray, label="Timer"];
-        ti_sysbios_hal__top -> ti_sysbios_hal_Timer[style=invis];
-        ti_sysbios_hal_Timer -> ti_sysbios_hal__bot[style=invis];
-        ti_sysbios_hal_Hwi_HwiProxy [style=filled,fillcolor=lightgray, label="Hwi_HwiProxy"];
-        ti_sysbios_hal__top -> ti_sysbios_hal_Hwi_HwiProxy[style=invis];
-        ti_sysbios_hal_Hwi_HwiProxy -> ti_sysbios_hal__bot[style=invis];
-        ti_sysbios_hal_Timer_TimerProxy [style=filled,fillcolor=lightgray, label="Timer_TimerProxy"];
-        ti_sysbios_hal__top -> ti_sysbios_hal_Timer_TimerProxy[style=invis];
-        ti_sysbios_hal_Timer_TimerProxy -> ti_sysbios_hal__bot[style=invis];
     }
     subgraph cluster29 {
         label="";
@@ -376,9 +385,9 @@ digraph configuration {
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
     ti_sysbios_family_c28_f2837x__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster21];
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
-    ti_sysbios__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster27];
+    ti_sysbios_hal__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster27];
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
-    ti_sysbios_hal__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster28];
+    ti_sysbios__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster28];
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
     ti_sysbios_family_c28__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster29];
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
