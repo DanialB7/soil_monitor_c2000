@@ -2,7 +2,7 @@
 <link_info>
    <banner>TMS320C2000 Linker PC v20.2.5.LTS</banner>
    <copyright>Copyright (c) 1996-2018 Texas Instruments Incorporated</copyright>
-   <link_time>0x656ea2a3</link_time>
+   <link_time>0x656fa458</link_time>
    <link_errors>0x0</link_errors>
    <output_file>Lab2Idle.out</output_file>
    <entry_point>
@@ -1263,7 +1263,7 @@
          <size>0x43</size>
          <input_file_ref idref="fl-c"/>
       </object_component>
-      <object_component id="oc-2ad">
+      <object_component id="oc-2ac">
          <name>.cinit:_ti_sysbios_knl_Swi_Module_State_0_readyQ__A</name>
          <load_address>0x80b8c</load_address>
          <run_address>0x80b8c</run_address>
@@ -1284,7 +1284,7 @@
          <size>0x3b</size>
          <input_file_ref idref="fl-c"/>
       </object_component>
-      <object_component id="oc-2ac">
+      <object_component id="oc-2ad">
          <name>.cinit:_ti_sysbios_knl_Swi_Object__table__V</name>
          <load_address>0x80c4d</load_address>
          <run_address>0x80c4d</run_address>
@@ -1340,14 +1340,14 @@
          <size>0x9</size>
          <input_file_ref idref="fl-c"/>
       </object_component>
-      <object_component id="oc-31c">
+      <object_component id="oc-31b">
          <name>.cinit:__lock</name>
          <load_address>0x80d02</load_address>
          <run_address>0x80d02</run_address>
          <size>0x5</size>
          <input_file_ref idref="fl-42"/>
       </object_component>
-      <object_component id="oc-31b">
+      <object_component id="oc-31c">
          <name>.cinit:__unlock</name>
          <load_address>0x80d07</load_address>
          <run_address>0x80d07</run_address>
@@ -8967,10 +8967,10 @@
             <object_component_ref idref="oc-138"/>
             <object_component_ref idref="oc-2aa"/>
             <object_component_ref idref="oc-2c3"/>
-            <object_component_ref idref="oc-2ad"/>
+            <object_component_ref idref="oc-2ac"/>
             <object_component_ref idref="oc-2b6"/>
             <object_component_ref idref="oc-2be"/>
-            <object_component_ref idref="oc-2ac"/>
+            <object_component_ref idref="oc-2ad"/>
             <object_component_ref idref="oc-111"/>
             <object_component_ref idref="oc-2c1"/>
             <object_component_ref idref="oc-3d9"/>
@@ -8978,8 +8978,8 @@
             <object_component_ref idref="oc-1eb"/>
             <object_component_ref idref="oc-2a6"/>
             <object_component_ref idref="oc-422"/>
-            <object_component_ref idref="oc-31c"/>
             <object_component_ref idref="oc-31b"/>
+            <object_component_ref idref="oc-31c"/>
             <object_component_ref idref="oc-2f7"/>
             <object_component_ref idref="oc-3a8"/>
             <object_component_ref idref="oc-2b8"/>
