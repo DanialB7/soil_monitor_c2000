@@ -1,12 +1,16 @@
-// Filename:            HwiExample_DeviceInit.c
+// Filename:            SoilMonitor_DeviceInit.c
 //
-// Description:	        Initialization code for Hwi Example
+// Description:	        Initialization code for Hwi, GPIO, I2C and eCAP
 //
 // Version:             1.0
 //
 // Target:              TMS320F28379D
 //
 // Author:              David Romalo
+//
+// Modified by:         Danial Bozorgtar & Ken Huynh
+//
+// Search for "DB" & "KH" for changes
 //
 // Date:                19Oct2021
 
@@ -27,14 +31,14 @@ EALLOW;
     GpioDataRegs.GPBCLEAR.bit.GPIO34 = 1;
 
     //Initialize GPIO for Ultrasonic Sensor
-    GpioCtrlRegs.GPBMUX2.bit.GPIO52 = 0; //Trig pin ultrasonic
-    GpioCtrlRegs.GPBDIR.bit.GPIO52 = 1; // configure to output
-    GpioDataRegs.GPBCLEAR.bit.GPIO52 = 1; //clear
+    GpioCtrlRegs.GPBMUX2.bit.GPIO52 = 0; //Trig pin ultrasonic //DB
+    GpioCtrlRegs.GPBDIR.bit.GPIO52 = 1; // configure to output //DB
+    GpioDataRegs.GPBCLEAR.bit.GPIO52 = 1; //clear //DB
 
     //Initialize GPIO for water pump
-    GpioCtrlRegs.GPAMUX2.bit.GPIO22 = 0; //Trig pin ultrasonic
-    GpioCtrlRegs.GPADIR.bit.GPIO22 = 1; // configure to output
-    GpioDataRegs.GPACLEAR.bit.GPIO22 = 1; //clear
+    GpioCtrlRegs.GPAMUX2.bit.GPIO22 = 0; //Trig pin ultrasonic //DB
+    GpioCtrlRegs.GPADIR.bit.GPIO22 = 1; // configure to output //DB
+    GpioDataRegs.GPACLEAR.bit.GPIO22 = 1; //clear //DB
 
 
 
@@ -51,13 +55,15 @@ EALLOW;
     //wait 1 ms after power-up before using the ADC:
     DelayUs(1000);
 
-    AdcaRegs.ADCSOC0CTL.bit.TRIGSEL = 2; //trigger source = CPU1 Timer 1
-    AdcaRegs.ADCSOC0CTL.bit.CHSEL = 5; //set SOC0 to sample A5
+    AdcaRegs.ADCSOC0CTL.bit.TRIGSEL = 2; //trigger source = CPU1 Timer 1 
+    AdcaRegs.ADCSOC0CTL.bit.CHSEL = 5; //set SOC0 to sample A5 //KH
     AdcaRegs.ADCSOC0CTL.bit.ACQPS = 139; //set SOC0 window to 139 SYSCLK cycles
-    AdcaRegs.ADCINTSEL1N2.bit.INT1SEL = 0; //connect interrupt ADCINT1 to EOC0
+    AdcaRegs.ADCINTSEL1N2.bit.INT1SEL = 0; //connect interrupt ADCINT1 to EOC0 //KH
     AdcaRegs.ADCINTSEL1N2.bit.INT1E = 1; //enable interrupt ADCINT1
-
-
+  
+    //---------------------------------------------------------------
+    // INITIALIZE eCAP //DB
+    //---------------------------------------------------------------
     CpuSysRegs.PCLKCR3.bit.ECAP1 = 1;
     GpioCtrlRegs.GPAQSEL1.bit.GPIO5 = 0;
     GpioCtrlRegs.GPAMUX1.bit.GPIO5 = 3; //Echo pin ultrasonic

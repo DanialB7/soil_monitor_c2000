@@ -1,3 +1,6 @@
+// Author: Ken Huynh
+// Thie file contains the function that is used to configure and operate I2C driver 
+
 #include "i2c_driver.h"
 
 #define DHT20_ADDRESS 0x38 // address for I2C temperature and humidity sensor

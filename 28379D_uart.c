@@ -1,3 +1,6 @@
+// Author: Ken Huynh
+// Thie file contains the function that is used to configure and operate UART 
+
 //in-house includes
 #include "28379D_uart.h"
 
