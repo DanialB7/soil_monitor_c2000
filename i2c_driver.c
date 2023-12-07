@@ -24,7 +24,7 @@ void start_i2c()
 
     //I2C Initialization
     I2cbRegs.I2CMDR.bit.IRS = 0;      //I2C IRS disable
-    I2cbRegs.I2CPSC.bit.IPSC = 0xA;   //prescale configuration used data sheet formula to calculate values
+    I2cbRegs.I2CPSC.bit.IPSC = 0x13;   //prescale configuration used data sheet formula to calculate values
     I2cbRegs.I2CCLKH = 45; //high period (changed check with ken was getting negative )
     I2cbRegs.I2CCLKL = 45; //low period (changed check with ken)
     I2cbRegs.I2CMDR.bit.MST = 1; //Master mode

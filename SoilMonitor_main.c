@@ -14,7 +14,7 @@
 #define VREFHI 3.0 //reference voltage for capacitive soil moisture sensor
 #define DHT20_ADDRESS 0x38 // address for I2C temperature and humidity sensor
 #define BUFFER_SIZE 64
-#define WATER_LEVEL 13 //set the lowest water level for tank in cm
+#define WATER_LEVEL 14.5 //set the lowest water level for tank in cm
 
 //includes:
 #include <xdc/std.h>
@@ -26,6 +26,7 @@
 #include <ti/sysbios/knl/Task.h>
 #include <ti/sysbios/knl/Swi.h>
 #include <ti/sysbios/knl/Semaphore.h>
+#include <xdc/runtime/Timestamp.h>
 #include <ti/sysbios/knl/Clock.h>
 #include "i2c_driver.h"
 #include "ultrasonic.h"
@@ -70,8 +71,13 @@ int num_samples = 0;
 float movingAverage;
 float distance;
 unsigned long int  ECAP_data;
-
-
+int count;
+uint32_t  elapsedTimei2c;
+uint32_t  elapsedTimeultra;
+uint32_t  elapsedTimeuart;
+uint32_t  elapsedTimeidle;
+uint32_t  elapsedTimeswi;
+uint32_t  elapsedTimehwi;
 /* ======== main ======== */
 Int main()
 { 
@@ -114,25 +120,39 @@ Void myTickFxn(UArg arg)
 //Idle function that is called repeatedly from RTOS
 Void myIdleFxn(Void)
 {
+    uint32_t startTime;
+    uint32_t endTime;
+    startTime = Timestamp_get32();
    if(isrFlag == TRUE) {
        isrFlag = FALSE;
        GpioDataRegs.GPATOGGLE.bit.GPIO31 = 1;  //toggle blue LED:
    }
+   endTime = Timestamp_get32();
+   elapsedTimeidle = endTime - startTime;
 }
 
 /* ========= myHwi ========== */
 //Hwi function that is called by the attached hardware devices e.g ADC
 Void myHwi(Void)
 {
+    uint32_t startTime;
+    uint32_t endTime;
+    startTime = Timestamp_get32();
     //read ADC value from temperature sensor:
     moisture_voltage_reading = ((VREFHI/4095)*AdcaResultRegs.ADCRESULT0); //get reading and scale reference voltage
     AdcaRegs.ADCINTFLGCLR.bit.ADCINT1 = 1; //clear interrupt flag
     Swi_post(Swi0); // post SWI to process data
+    endTime = Timestamp_get32();
+    elapsedTimehwi = endTime - startTime;
+
 }
 /* ========= mySwiFxn ========== */
 //SWI function that gets posted by Hwi to process capacitive soil moisture data
 Void mySwiFxn(Void)
 {
+      uint32_t startTime;
+      uint32_t endTime;
+      startTime = Timestamp_get32();
        //converting voltage reading of adc to water content in soil
        water_content =(((1/moisture_voltage_reading)*2.48) - 0.72)*100;
        if ((water_content < 30) && (isrFlag1 == FALSE))
@@ -144,6 +164,8 @@ Void mySwiFxn(Void)
        {
            GpioDataRegs.GPACLEAR.bit.GPIO22 = 1;
        }
+       endTime = Timestamp_get32();
+       elapsedTimeswi = endTime - startTime;
 }
 
 
@@ -153,10 +175,15 @@ Void myTskFxn2(Void)
 {
     while (TRUE) {
         Semaphore_pend(mySem2, BIOS_WAIT_FOREVER); // wait for semaphore to be posted
+        uint32_t startTime;
+        uint32_t endTime;
+        startTime = Timestamp_get32();
         char str[50];
-        sprintf(str,"Temp: %.3f \n", movingAverage);
+        sprintf(str,"Temp: %.3f Hum: %.3f\n", movingAverage,humidity);
         // Transmit the string over UART
         uart_tx_str(str);
+        endTime = Timestamp_get32();
+        elapsedTimeuart = endTime - startTime;
     }
 }
 
@@ -168,8 +195,11 @@ Void myTskFxn(Void)
     while (TRUE) {
         Semaphore_pend(mySem, BIOS_WAIT_FOREVER); // wait for semaphore to be posted
         // Step 1: Check sensor status
+        uint32_t startTime;
+        uint32_t endTime;
         UInt8 status;
         UInt8 status_cmd = 0x71;
+        startTime = Timestamp_get32();
         if (once == 0){
         i2c_master_transmit(DHT20_ADDRESS, &status_cmd, 1);
         Task_sleep(20); // Short delay for transmission to complete
@@ -235,6 +265,8 @@ Void myTskFxn(Void)
        movingAverage = sum / (float)num_samples;
        Semaphore_post(mySem2);
        Semaphore_post(mySem);
+       endTime = Timestamp_get32();
+       elapsedTimei2c = endTime - startTime;
     }
 }
 /* ========= myTskFxn1 ========== */
@@ -242,7 +274,9 @@ Void myTskFxn(Void)
 Void myTskFxn1(Void)
 {
     while (TRUE) {
-
+        uint32_t startTime;
+        uint32_t endTime;
+        startTime = Timestamp_get32();
         // Set trigger pin high
         GpioDataRegs.GPBSET.bit.GPIO52 = 1;
         // Delay for 10 Us
@@ -264,5 +298,7 @@ Void myTskFxn1(Void)
         {
             isrFlag1 = FALSE;
         }
+        endTime = Timestamp_get32();
+        elapsedTimeultra = endTime - startTime;
     }
 }

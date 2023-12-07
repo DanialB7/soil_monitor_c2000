@@ -83,11 +83,11 @@ SECTIONS {
 
 /* Content from ti.sysbios.family (null): */
 
+/* Content from ti.sysbios.family.c28.f2837x (null): */
+
 /* Content from ti.sysbios.rts (null): */
 
 /* Content from xdc.runtime.knl (null): */
-
-/* Content from ti.sysbios.family.c28.f2837x (null): */
 
 /* Content from ti.catalog.c2800 (null): */
 

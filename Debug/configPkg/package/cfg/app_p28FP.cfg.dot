@@ -89,9 +89,6 @@ digraph configuration {
         xdc_runtime_TimestampNull [style=filled,fillcolor=lightgray, label="TimestampNull"];
         xdc_runtime__top -> xdc_runtime_TimestampNull[style=invis];
         xdc_runtime_TimestampNull -> xdc_runtime__bot[style=invis];
-        xdc_runtime_Types [style=filled,fillcolor=lightgray, label="Types"];
-        xdc_runtime__top -> xdc_runtime_Types[style=invis];
-        xdc_runtime_Types -> xdc_runtime__bot[style=invis];
         xdc_runtime_LoggerBuf_TimestampProxy [style=filled,fillcolor=lightgray, label="LoggerBuf_TimestampProxy"];
         xdc_runtime__top -> xdc_runtime_LoggerBuf_TimestampProxy[style=invis];
         xdc_runtime_LoggerBuf_TimestampProxy -> xdc_runtime__bot[style=invis];
@@ -184,24 +181,24 @@ digraph configuration {
     }
     subgraph cluster19 {
         label="";
+        ti_sysbios_family_c28_f2837x__top [shape=box,label="ti.sysbios.family.c28.f2837x\n2,0,0,0,0", color=white];
+        ti_sysbios_family_c28_f2837x__bot [shape=point,label="", style=invis];
+        ti_sysbios_family_c28_f2837x_TimestampProvider [style=filled,fillcolor=lightgray, label="TimestampProvider"];
+        ti_sysbios_family_c28_f2837x__top -> ti_sysbios_family_c28_f2837x_TimestampProvider[style=invis];
+        ti_sysbios_family_c28_f2837x_TimestampProvider -> ti_sysbios_family_c28_f2837x__bot[style=invis];
+    }
+    subgraph cluster20 {
+        label="";
         ti_sysbios_rts__top [shape=box,label="ti.sysbios.rts\n2,0,0,0,1601763860975", color=white];
         ti_sysbios_rts__bot [shape=point,label="", style=invis];
         ti_sysbios_rts_MemAlloc [style=filled,fillcolor=lightgray, label="MemAlloc"];
         ti_sysbios_rts__top -> ti_sysbios_rts_MemAlloc[style=invis];
         ti_sysbios_rts_MemAlloc -> ti_sysbios_rts__bot[style=invis];
     }
-    subgraph cluster20 {
+    subgraph cluster21 {
         label="";
         xdc_runtime_knl__top [shape=box,label="xdc.runtime.knl\n1,0,0,1601763860975", color=white];
         xdc_runtime_knl__bot [shape=point,label="", style=invis];
-    }
-    subgraph cluster21 {
-        label="";
-        ti_sysbios_family_c28_f2837x__top [shape=box,label="ti.sysbios.family.c28.f2837x\n2,0,0,0,1601763860975", color=white];
-        ti_sysbios_family_c28_f2837x__bot [shape=point,label="", style=invis];
-        ti_sysbios_family_c28_f2837x_TimestampProvider [style=filled,fillcolor=lightgray, label="TimestampProvider"];
-        ti_sysbios_family_c28_f2837x__top -> ti_sysbios_family_c28_f2837x_TimestampProvider[style=invis];
-        ti_sysbios_family_c28_f2837x_TimestampProvider -> ti_sysbios_family_c28_f2837x__bot[style=invis];
     }
     subgraph cluster22 {
         label="";
@@ -383,7 +380,7 @@ digraph configuration {
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
     ti_targets_rts2800__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster16];
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
-    ti_sysbios_family_c28_f2837x__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster21];
+    ti_sysbios_family_c28_f2837x__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster19];
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];
     ti_sysbios_hal__bot -> ti_targets_C28_float__1_0_20__2_0 [ltail=cluster27];
     ti_targets_C28_float__1_0_20__2_0 [shape=record,label="ti.targets.C28_float|1,0,20.2,0",style=filled, fillcolor=lightgrey];

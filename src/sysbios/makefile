@@ -54,7 +54,7 @@ c28_TaskSupport_asm.obj: family/c28/TaskSupport_asm.s28 makefile
 	$(ASSEMBLE) --output_file=c28_TaskSupport_asm.obj
 
 
-BIOS.obj: BIOS.c family/c28/Hwi.c family/c28/Timer.c family/c28/TaskSupport.c knl/Clock.c knl/Idle.c knl/Intrinsics.c knl/Queue.c knl/Semaphore.c knl/Swi.c knl/Task.c hal/Core.c hal/CoreNull.c hal/Hwi.c hal/Hwi_stack.c hal/Hwi_startup.c hal/Timer.c utils/Load.c utils/Load_CPU.c gates/GateHwi.c gates/GateMutex.c family/c28/f2837x/TimestampProvider.c makefile
+BIOS.obj: BIOS.c family/c28/Hwi.c family/c28/Timer.c family/c28/TaskSupport.c knl/Clock.c knl/Idle.c knl/Intrinsics.c knl/Queue.c knl/Semaphore.c knl/Swi.c knl/Task.c hal/Core.c hal/CoreNull.c hal/Hwi.c hal/Hwi_stack.c hal/Hwi_startup.c hal/Timer.c utils/Load.c utils/Load_CPU.c family/c28/f2837x/TimestampProvider.c gates/GateHwi.c gates/GateMutex.c makefile
 	@-$(call RM, $@)
 	@echo cl28FP $< ...
 	@$(CC) $(BIOS_DEFS) $(XOPTS) $(INCS) $(subst makefile,,$^)

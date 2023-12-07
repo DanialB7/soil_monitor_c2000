@@ -194,6 +194,19 @@ SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Task.h
 SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Event__epilogue.h
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Semaphore__epilogue.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Timestamp.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/ITimestampClient.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/ITimestampProvider.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/ITimestampClient.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/package/Timestamp_SupportProxy.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/ITimestampProvider.h
+SoilMonitor_main.obj: C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/package/Timestamp_SupportProxy.h
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Clock.h
 SoilMonitor_main.obj: C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/package/Clock_TimerProxy.h
 SoilMonitor_main.obj: ../i2c_driver.h
@@ -632,6 +645,32 @@ C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h:
 C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Event__epilogue.h:
 
 C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Semaphore__epilogue.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Timestamp.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/ITimestampClient.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/IModule.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/ITimestampProvider.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/ITimestampClient.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/package/Timestamp_SupportProxy.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/Types.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/ITimestampProvider.h:
+
+C:/ti/ccs1040/xdctools_3_62_01_15_core/packages/xdc/runtime/package/Timestamp_SupportProxy.h:
 
 C:/ti/bios_6_83_00_18/packages/ti/sysbios/knl/Clock.h:
 
