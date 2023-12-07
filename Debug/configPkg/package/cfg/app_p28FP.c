@@ -1982,7 +1982,7 @@ __FAR__ const xdc_SizeT ti_sysbios_utils_Load_Module_State_taskList__O = offseto
  *  Define absolute path prefix for this executable's
  *  configuration generated files.
  */
-xdc__META(__ASM__, "@(#)__ASM__ = C:/Users/Danial/Documents/GitHub/soil_monitor_c2000/Debug/configPkg/package/cfg/app_p28FP");
+xdc__META(__ASM__, "@(#)__ASM__ = C:/Users/huynh/Documents/GitHub/soil_monitor_c2000/Debug/configPkg/package/cfg/app_p28FP");
 
 /*
  *  ======== __ISA__ ========

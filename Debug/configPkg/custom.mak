@@ -7,5 +7,5 @@
 #       or equal to the generated config header
 #
 linker.cmd: package/cfg/app_p28FP.xdl
-	$(SED) 's"^\"\(package/cfg/app_p28FPcfg.cmd\)\"$""\"C:/Users/Danial/Documents/GitHub/soil_monitor_c2000/Debug/configPkg/\1\""' package/cfg/app_p28FP.xdl > $@
+	$(SED) 's"^\"\(package/cfg/app_p28FPcfg.cmd\)\"$""\"C:/Users/huynh/Documents/GitHub/soil_monitor_c2000/Debug/configPkg/\1\""' package/cfg/app_p28FP.xdl > $@
 	-$(SETDATE) -r:max package/cfg/app_p28FP.h compiler.opt compiler.opt.defs

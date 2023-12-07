@@ -1,7 +1,7 @@
 ******************************************************************************
              TMS320C2000 Linker PC v20.2.5                     
 ******************************************************************************
->> Linked Wed Dec  6 18:26:58 2023
+>> Linked Wed Dec  6 20:49:07 2023
 
 OUTPUT FILE NAME:   <Lab2Idle.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 0008a774
@@ -1264,8 +1264,8 @@ PUTREADIDX
 *          0    00080002    0000002b     RUN ADDR = 0000b000
                   00080002    0000002b     Boot.a28FP : Boot.o28FP (.text:ti_catalog_c2800_initF2837x_flashfuncs:_ti_catalog_c2800_initF2837x_Boot_initFlash)
 
-xdc.meta   0    00000000    000000ec     COPY SECTION
-                  00000000    000000ec     app_p28FP.o28FP (xdc.meta)
+xdc.meta   0    00000000    000000eb     COPY SECTION
+                  00000000    000000eb     app_p28FP.o28FP (xdc.meta)
 
 xdc.noload 
 *          0    00000000    00000000     COPY SECTION
@@ -1285,12 +1285,12 @@ MODULE SUMMARY
     +--+--------------------------------+-------+------------------+--------------------+
        Total:                           1125    60                 9570              
                                                                                      
-    C:\Users\Danial\Documents\GitHub\soil_monitor_c2000\Debug\configPkg\package\cfg\
+    C:\Users\huynh\Documents\GitHub\soil_monitor_c2000\Debug\configPkg\package\cfg\
        app_p28FP.o28FP                  1048    2605               4432              
     +--+--------------------------------+-------+------------------+--------------------+
        Total:                           1048    2605               4432              
                                                                                      
-    C:\Users\Danial\Documents\GitHub\soil_monitor_c2000\src\sysbios\sysbios.a28FP
+    C:\Users\huynh\Documents\GitHub\soil_monitor_c2000\src\sysbios\sysbios.a28FP
        BIOS.obj                         6492    28                 0                 
        c28_Hwi_disp_asm.obj             157     0                  0                 
        c28_TaskSupport_asm.obj          75      0                  0                 

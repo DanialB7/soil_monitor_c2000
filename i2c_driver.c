@@ -13,14 +13,14 @@ void start_i2c()
     GpioCtrlRegs.GPBMUX1.bit.GPIO40 = 0b10;  //
     GpioCtrlRegs.GPBQSEL1.bit.GPIO40 = 0b11; //8.9.2
     GpioCtrlRegs.GPBPUD.bit.GPIO40 = 0b0;   // Technical manual 8.10.2.7
-    //System_printf("SDA setup\n");
+
 
     //SCL - SPIOP41
     GpioCtrlRegs.GPBGMUX1.bit.GPIO41 = 0b01;
     GpioCtrlRegs.GPBMUX1.bit.GPIO41 = 0b10;
     GpioCtrlRegs.GPBQSEL1.bit.GPIO41 = 0b11;
     GpioCtrlRegs.GPBPUD.bit.GPIO41 = 0b0;
-    //System_printf("SCL setup\n");
+
 
     //I2C Initialization
     I2cbRegs.I2CMDR.bit.IRS = 0;      //I2C IRS disable
@@ -53,9 +53,8 @@ bool i2c_master_transmit(UInt8 dev_addr, UInt8 *commands, uint16_t length)
     //To make sure master is in transmitter mode after receiving data
     I2cbRegs.I2CMDR.bit.MST = 1; //Master mode
     I2cbRegs.I2CMDR.bit.TRX = 1; //Transmitter
-
-    I2cbRegs.I2CSAR.bit.SAR = dev_addr;
-    I2cbRegs.I2CCNT = length;
+    I2cbRegs.I2CSAR.bit.SAR = dev_addr; //configure the sensor address
+    I2cbRegs.I2CCNT = length; //set up the length of data
     //length of data
 
     I2cbRegs.I2CMDR.bit.STT = 1; //Start condition toggle (also send the device address)
@@ -93,7 +92,7 @@ bool i2c_master_transmit(UInt8 dev_addr, UInt8 *commands, uint16_t length)
 
 bool i2c_send_byte(UInt8 byte)
 {
-    while (!I2cbRegs.I2CSTR.bit.XRDY)
+    while (!I2cbRegs.I2CSTR.bit.XRDY) //check for transmit-data-ready interrupt enable
     {
 
         if (I2cbRegs.I2CSTR.bit.NACK) //check for nack
@@ -125,7 +124,7 @@ bool resetRegister(UInt8 reg)
 }
 bool i2c_received_byte(UInt8 *byte)
 {
-    while (!I2cbRegs.I2CSTR.bit.RRDY)
+    while (!I2cbRegs.I2CSTR.bit.RRDY) //check for receive-data-ready interrupt enable
     {
         if (I2cbRegs.I2CSTR.bit.NACK) //check for nack (gets stuck here)
         {

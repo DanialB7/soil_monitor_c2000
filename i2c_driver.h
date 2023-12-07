@@ -22,7 +22,6 @@ void start_i2c();
 bool resetRegister(UInt8 reg); //DB
 bool i2c_master_transmit(UInt8 dev_addr, UInt8 *commands, uint16_t length);
 bool i2c_send_byte(UInt8 byte);
-
 bool i2c_master_receive(UInt8 dev_addr, UInt8 *data_received, uint16_t length);
 bool i2c_receive_byte(UInt8 *byte);
 
